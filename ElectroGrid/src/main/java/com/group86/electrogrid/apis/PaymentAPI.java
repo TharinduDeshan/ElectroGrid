@@ -16,18 +16,13 @@ import com.group86.electrogrid.repositories.PaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.group86.electrogrid.models.User;
-import com.group86.electrogrid.repositories.UserRepository;
 
 @Path("/api/payment")
 public class PaymentAPI {
 	
 	@Autowired
     PaymentRepository paymentRepository;
-	
-    
+	  
 
     @POST
     @Path("/create_payment")
@@ -38,7 +33,8 @@ public class PaymentAPI {
         printPayment(payment);
 
         String ret = "Payment ID : "+ Long.toString(payment.getId()) + "<br>" +
-                "Units : "+ payment.getUnits() + "<br>" +
+        		"Minimum Unit : "+ payment.getMinUnit() + "<br>" +
+                "Maximum Unit : "+ payment.getMaxUnit() + "<br>" +
                 "Unit Price : "+ Float.toString(payment.getUnitPrice());
 
         return ret;
@@ -93,13 +89,15 @@ public class PaymentAPI {
 
     public void printPayment(Payment payment){
         System.out.println("User ID : "+ payment.getId());
-        System.out.println("Units : "+ payment.getUnits());
+        System.out.println("Minimum Unit : "+ payment.getMinUnit());
+        System.out.println("Maximum Unit : "+ payment.getMaxUnit());
         System.out.println("Unit Price : "+ payment.getUnitPrice());
     }
 
     public String getString(Payment payment){
         return  "User ID : "+ Long.toString(payment.getId()) + "<br>" +
-                "Units : "+ payment.getUnits() + "<br>" +
+        		"Minimum Unit : "+ payment.getMinUnit() + "<br>" +
+                "Maximum Unit : "+ payment.getMaxUnit() + "<br>" +
                 "Unit Price : "+ Float.toString(payment.getUnitPrice());
     }
 

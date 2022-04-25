@@ -14,20 +14,24 @@ public class Payment {
 	@GeneratedValue(generator = "increment")
 	@GenericGenerator(name = "increment", strategy ="increment")
 	private Long id;
+	
+	@Column(unique = true)
+	private String minUnit;
 	  
 	@Column(unique = true)
-	private String units;
+	private String maxUnit;
 	  
-	@Column(unique = true)
+	@Column()
 	private Float unitPrice;
 	  
 
 	public Payment() {
 	}
 
-	public Payment(Long id, String units, Float unitPrice) {
+	public Payment(Long id, String minUnit, String maxUnit, Float unitPrice) {
 		this.id = id;
-		this.units = units;
+		this.minUnit = minUnit;
+		this.maxUnit = maxUnit;
 		this.unitPrice = unitPrice;
 	}
 
@@ -39,12 +43,20 @@ public class Payment {
 		this.id = id;
 	}
 
-	public String getUnits() {
-		return units;
+	public String getMinUnit() {
+		return minUnit;
 	}
 
-	public void setUnits(String units) {
-		this.units = units;
+	public void setMinUnit(String minUnit) {
+		this.minUnit = minUnit;
+	}
+
+	public String getMaxUnit() {
+		return maxUnit;
+	}
+
+	public void setMaxUnit(String maxUnit) {
+		this.maxUnit = maxUnit;
 	}
 
 	public Float getUnitPrice() {
@@ -54,5 +66,6 @@ public class Payment {
 	public void setUnitPrice(Float unitPrice) {
 		this.unitPrice = unitPrice;
 	}
+	
 
 }
