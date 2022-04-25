@@ -51,7 +51,10 @@ public class UserAPI {
         String ret = "User ID : "+ Long.toString(user.getId()) + "<br>" +
                 "Username : "+ user.getUsername() + "<br>" +
                 "Password : "+ user.getPassword()  + user.getPassword()  + "<br>" +
-                "Email : "+ user.getEmail() ;
+                "Email : "+ user.getEmail() +
+                "ContactNo : "+ user.getContactNo() + "<br>" +
+                "Occupancy : "+ user.getOccupancy() + "<br>" +
+                "Address : "+ user.getAddress();
 
         return ret;
     }
@@ -87,13 +90,19 @@ public class UserAPI {
         System.out.println("Username : "+ user.getUsername());
         System.out.println("Password : "+ user.getPassword());
         System.out.println("Email : "+ user.getEmail());
+        System.out.println("ContactNo : "+ user.getContactNo());
+        System.out.println("Occupancy : "+ user.getOccupancy());
+        System.out.println("Address : "+ user.getAddress());
     }
 
     public String getString(User user){
         return  "User ID : "+ Long.toString(user.getId()) + "<br>" +
                 "Username : "+ user.getUsername() + "<br>" +
                 "Password : "+ user.getPassword()  + user.getPassword()  + "<br>" +
-                "Email : "+ user.getEmail() ;
+                "Email : "+ user.getEmail() +
+                "ContactNo : "+ user.getContactNo() + "<br>" +
+                "Occupancy : "+ user.getOccupancy() + "<br>" +
+                "Address : "+ user.getAddress();
     }
 
 
