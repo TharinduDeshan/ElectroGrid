@@ -23,9 +23,6 @@ public class UserValues {
 	@Column()
 	private Float units;
 
-//    @Column()
-//    private double total;
-
 	@Column()
 	private Float bill;
 
@@ -36,7 +33,6 @@ public class UserValues {
 		this.id = id;
 		this.name = name;
 		this.units = units;
-//		this.total = Total;
 	}
 
 	public Long getId() {

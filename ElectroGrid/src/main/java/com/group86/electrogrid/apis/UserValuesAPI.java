@@ -38,12 +38,7 @@ public class UserValuesAPI {
 //        }
 //    }
 
-    @GET
-    @Path("/getalluservalues")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<UserValues> GetAllUserValues(){
-         return userValuesRepository.findAll();
-    }
+
 
     @POST
     @Path("/create_user_value")
@@ -60,6 +55,12 @@ public class UserValuesAPI {
         return ret;
     }
 
+    @GET
+    @Path("/getalluservalues")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<UserValues> GetAllUserValues(){
+         return userValuesRepository.findAll();
+    }
 
     @POST
     @Path("/update_user")
