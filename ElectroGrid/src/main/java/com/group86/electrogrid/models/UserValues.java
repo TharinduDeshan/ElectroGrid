@@ -91,7 +91,10 @@ public class UserValues {
 		} else if (units < 181) {
 			Total = (float) (((units - 120) * 32) + (60 * 7.85) + (30 * 10) + (30 * 27.75));
 			System.out.println("Total : " + Total);
-		} else {
+		}else if (units > 181) {
+				Total = (float) (((units - 120) * 32) + (60 * 7.85) + (30 * 10) + (30 * 27.75));
+				System.out.println("Total : " + Total);
+		}else {
 			Total = 0;
 			System.out.println("Total : " + Total);
 		}
