@@ -1,5 +1,7 @@
 package com.group86.electrogrid.apis;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -47,7 +49,7 @@ public class UserValuesAPI {
     @Path("/create_user_value")
     @Consumes(MediaType.APPLICATION_JSON)
     public String createUser(UserValues userValues){
-
+    	userValues.setBill(userValues.calculateTotal());
         userValuesRepository.save(userValues);
         printUserValues(userValues);
 
@@ -103,12 +105,8 @@ public class UserValuesAPI {
     public UserValues getUserValueById(@PathParam("id") Long id){
         Optional<UserValues> userValues = userValuesRepository.findById(id);
         if(userValues.isPresent()){
-           return userValues.get();
+        	return userValues.get();
            
-           
-            
-            //String jsonString = JSON.toJSONString(user);
-            //return Response.status(Response.Status.OK).entity(jsonString).build();
         }else{
             return null;
         }
