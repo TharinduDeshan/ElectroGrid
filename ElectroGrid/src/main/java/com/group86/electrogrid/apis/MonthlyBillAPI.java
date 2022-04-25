@@ -55,19 +55,21 @@ public class MonthlyBillAPI {
     
     
     
-    @GET
-    @Path("/getuservalue/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public UserValues getUserValueById(@PathParam("id") Long id){
-        Optional<UserValues> userValue = userValuesRepository.findById(id);
-        if(userValue.isPresent()){
-            return userValue.get();
-            //String jsonString = JSON.toJSONString(user);
-            //return Response.status(Response.Status.OK).entity(jsonString).build();
-        }else{
-            return null;
-        }
-    }
+//    @GET
+//    @Path("/getuservalue/{id}")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public UserValues getUserValueById(@PathParam("id") Long id){
+//        Optional<UserValues> userValue = userValuesRepository.findById(id);
+//        if(userValue.isPresent()){
+//            return userValue.get();
+//            //String jsonString = JSON.toJSONString(user);
+//            //return Response.status(Response.Status.OK).entity(jsonString).build();
+//        }else{
+//            return null;
+//        }
+//    }
+    
+    
     
     
 //    @GET

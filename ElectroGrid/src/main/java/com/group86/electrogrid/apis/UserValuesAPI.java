@@ -103,7 +103,9 @@ public class UserValuesAPI {
     public UserValues getUserValueById(@PathParam("id") Long id){
         Optional<UserValues> userValues = userValuesRepository.findById(id);
         if(userValues.isPresent()){
-            return userValues.get();
+           return userValues.get();
+           
+           
             
             //String jsonString = JSON.toJSONString(user);
             //return Response.status(Response.Status.OK).entity(jsonString).build();
