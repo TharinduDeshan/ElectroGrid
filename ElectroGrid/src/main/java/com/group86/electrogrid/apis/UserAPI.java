@@ -31,7 +31,6 @@ public class UserAPI {
         }else{
             return null;
         }
-
     }
 
     @GET
