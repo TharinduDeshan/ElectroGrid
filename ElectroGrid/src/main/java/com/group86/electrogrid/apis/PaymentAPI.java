@@ -4,14 +4,17 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.group86.electrogrid.models.Payment;
+import com.group86.electrogrid.models.UserValues;
 import com.group86.electrogrid.repositories.PaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
@@ -37,7 +40,7 @@ public class PaymentAPI {
                 "Maximum Unit : "+ payment.getMaxUnit() + "<br>" +
                 "Unit Price : "+ Float.toString(payment.getUnitPrice());
 
-        return ret;
+        return ("Data Inserted Successfully");
     }
     
     @GET
@@ -61,26 +64,26 @@ public class PaymentAPI {
          return paymentRepository.findAll();
     }
     
-    @POST
-    @Path("/update_payment")
+    @PUT
+    @Path("/update_payment/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public String updatePayment(Payment payment){
+    public String updateUser(Payment payment){
 
-    	paymentRepository.save(payment);
+        paymentRepository.save(payment);
         printPayment(payment);
 
-        return getString(payment)+ "<br>Updated" ;
+        return "Updated" ;
     }
 
 
-    @GET
+    @DELETE
     @Path("/deletepayment/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public String deletePayment(@PathParam("id") Long id) {
         Optional<Payment> payment = paymentRepository.findById(id);
         if (payment.isPresent()) {
         	paymentRepository.delete(payment.get());
-            return getString(payment.get())+ "<br> Deleted Successfully";
+            return "Deleted Successfully";
         } else {
             return "Field not exists with id : "+ id;
         }

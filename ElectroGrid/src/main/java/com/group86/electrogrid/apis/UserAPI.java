@@ -79,7 +79,7 @@ public class UserAPI {
         Optional<User> user = userRepository.findById(id);
         if (user.isPresent()) {
             userRepository.delete(user.get());
-            return getString(user.get())+ "<br> Deleted Successfully";
+            return " Deleted Successfully";
         } else {
             return "User not exists with id : "+ id;
         }
